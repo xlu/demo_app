@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DependencyValidationManager">
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="PerforceDirect.Settings">
+    <option name="useP4CONFIG" value="false" />
+    <option name="port" value="perforce:1666" />
+    <option name="client" value="xiaoming_Xiaoming-Lus-MacBook-Pro_4267" />
+    <option name="user" value="xiaoming" />
+    <option name="passwd" value="dfc9dfc2dfcbdfc4dfcddfcfdfc7dfcfdfc4dfc5dfdddf8b" />
+    <option name="pathToExec" value="/usr/local/bin/p4" />
+    <option name="PATH_TO_P4V" value="/Applications/p4vc" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="RVM: ruby-1.8.7-p334" project-jdk-type="RUBY_SDK" />
+</project>
+
