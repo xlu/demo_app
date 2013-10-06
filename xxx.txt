@@ -2,6 +2,7 @@
           help GET    /help(.:format)                static_pages#help
          about GET    /about(.:format)               static_pages#about
        contact GET    /contact(.:format)             static_pages#contact
+        signup GET    /signup(.:format)              users#new
     microposts GET    /microposts(.:format)          microposts#index
                POST   /microposts(.:format)          microposts#create
  new_micropost GET    /microposts/new(.:format)      microposts#new

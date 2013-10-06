@@ -7,8 +7,6 @@ DemoApp::Application.routes.draw do
   match '/signup',  :to => 'users#new',            :via => 'get'
 
   resources :microposts
-
-
   resources :users
 
 

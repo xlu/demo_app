@@ -9,6 +9,9 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
+  # http://stackoverflow.com/questions/9475857/rspec-and-named-routes
+  config.include Rails.application.routes.url_helpers
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

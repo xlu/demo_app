@@ -24,14 +24,12 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-=begin
     @user = User.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
     end
-=end
   end
 
   # GET /users/1/edit
@@ -42,11 +40,14 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html {
+          flash[:success] = "Welcome to the Sample App!"
+          redirect_to @user
+        }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -82,4 +83,12 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def user_params
+      #params.require(:user).permit(:name, :email, :password,
+      #                             :password_confirmation)
+      params[:user]
+    end
 end
