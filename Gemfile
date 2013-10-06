@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby', '3.0.1'
 
 group :development do
   gem 'sqlite3', '1.3.8'
