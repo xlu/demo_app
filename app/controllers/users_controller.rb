@@ -44,6 +44,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        sign_in @user
         format.html {
           flash[:success] = "Welcome to the Sample App!"
           redirect_to @user
