@@ -1,5 +1,10 @@
 @import "bootstrap";
 
+/* tweeks of bootstrap */
+.hero-unit a:visited {
+  color: white;
+}
+
 /* universal */
 $lightGray: #999;
 
@@ -94,7 +99,7 @@ footer {
   a {
     color: $gray;
     &:hover {
-      color: $grayDarker;
+      color: white;
     }
   }
   small {
