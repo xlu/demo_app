@@ -9,8 +9,7 @@ DemoApp::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy',  :via => 'delete'
 
   resources :sessions, :only => [:new, :create, :destroy]
-
-  resources :microposts
+  resources :microposts, only: [:create, :destroy]
   resources :users
 
 
