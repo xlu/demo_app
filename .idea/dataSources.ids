@@ -1,1 +1,91 @@
-<?xml version='1.0' ?><component name="dataSourceStorage"><data-source source="LOCAL" name="Rails demo_app: development" product="" version="" jdbc-version="" driver-version="" uuid="0b1cf945-ccfa-468c-9310-e7e00d27cfa8"><jdbc-driver>org.sqlite.JDBC</jdbc-driver><jdbc-url>jdbc:sqlite:/Users/xlu/Dropbox/xlu_study/rails_test_apps/demo_app/db/development.sqlite3</jdbc-url><libraries><library><url>jar://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/sqlitejdbc-v056.jar!/</url></library></libraries></data-source><data-source source="LOCAL" name="Rails demo_app: test" product="" version="" jdbc-version="" driver-version="" uuid="234e7f55-31fd-4315-9a00-c466a1bbb725"><jdbc-driver>org.sqlite.JDBC</jdbc-driver><jdbc-url>jdbc:sqlite:/Users/xlu/Dropbox/xlu_study/rails_test_apps/demo_app/db/test.sqlite3</jdbc-url><libraries><library><url>jar://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/sqlitejdbc-v056.jar!/</url></library></libraries></data-source></component>
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails demo_app: development" product="SQLite" version="3.6.14.2" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" uuid="11df4aff-9d4d-40a7-83f6-eef12339ce89">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/sqlitejdbc-v056.jar</url>
+      </library>
+    </libraries>
+    <schema name="" catalog=""/>
+    <table name="MICROPOSTS" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="SCHEMA_MIGRATIONS" schema="" catalog="" type="TABLE">
+      <column name="version" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="SQLITE_SEQUENCE" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="USERS" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="password_digest" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="remember_token" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+  </data-source>
+  <data-source source="LOCAL" name="Rails demo_app: test" product="SQLite" version="3.6.14.2" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" uuid="300b9b44-ebaf-4840-9430-11d20a473ff8">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/sqlitejdbc-v056.jar</url>
+      </library>
+    </libraries>
+    <schema name="" catalog=""/>
+    <table name="MICROPOSTS" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="SCHEMA_MIGRATIONS" schema="" catalog="" type="TABLE">
+      <column name="version" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="SQLITE_SEQUENCE" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="USERS" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="password_digest" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="remember_token" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+  </data-source>
+  <data-source source="LOCAL" name="Rails demo_app: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="0b1cf945-ccfa-468c-9310-e7e00d27cfa8">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+    <libraries>
+      <library>
+        <url>jar://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/sqlitejdbc-v056.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails demo_app: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="234e7f55-31fd-4315-9a00-c466a1bbb725">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+    <libraries>
+      <library>
+        <url>jar://$USER_HOME$/Library/Preferences/RubyMine31/jdbc-drivers/sqlitejdbc-v056.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>
