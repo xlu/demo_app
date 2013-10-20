@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+#gem "dotiw", "~> 1.1.1"
 
 group :development do
   gem 'sqlite3', '1.3.8'

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @subject  = current_user.subjects.build
 
     respond_to do |format|
       format.html # show.html.erb

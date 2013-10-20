@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :admin
   has_many :microposts, dependent: :destroy
+  has_many :subjects, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
@@ -39,6 +40,12 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     relationships.where(followed_id: other_user.id).first.destroy
+  end
+
+  def show
+    if signed_in?
+      @subject  = current_user.subjects.build
+    end
   end
 
   private

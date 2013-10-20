@@ -1,14 +1,38 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span5">
     <section>
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <div class="clearfix"></div>
+      <% if @user.subjects.any? %>
+        <ol class="clearfix">
+          <%= render @user.subjects %>
+        </ol>
+      <% end %>
+
+      <div class="clearfix;">
+        <h1>Create another writing subject</h1>
+        <%= form_for(@subject) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name, placeholder: "Enter subject name ..." %>
+            <%= f.label "Month" %>
+            <%= f.text_field :birth_month, placeholder: "Month" %>
+            <%= f.label "Day" %>
+            <%= f.text_field :birth_day, placeholder: "Day" %>
+            <%= f.label "Year" %>
+            <%= f.text_field :birth_year, placeholder: "Year" %>
+          </div>
+          <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+        <% end %>
+      </div>
     </section>
   </aside>
-  <div class="span8">
+  <div class="span7">
     <%= render 'follow_form' if signed_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
