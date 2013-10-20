@@ -1,0 +1,21 @@
+<div class="clearfix;" style="border-bottom: 1px solid #e8e8e8; ">
+  <!--
+      https://github.com/radar/dotiw
+      DOTIW::DOTIW.new.distance_of_time_in_words(child_birth_date, today, true, {:only => ["years", "months", "days"]}) + " old"
+       -->
+      <span style="margin: 5px 0 5px 0; "><%= subject.name %>
+        <% if current_user?(subject.user) %>
+         (<%= link_to "Edit", edit_subject_path(subject), title: subject.name%>,
+          <%= link_to "Delete", subject, method: :delete,
+                                            data: { confirm: "You sure?" },
+                                            title: subject.name %><% end %>)
+      </span>
+      <span style="margin: 5px 0 5px 0">
+        <% if subject.has_birth_date? %>
+          <%= friendly_subject_age(subject) %>
+        <% end %>
+      </span>
+
+</div>
+
+

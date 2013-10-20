@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @subject.name %>
+</p>
+
+<p>
+  <b>Birth month:</b>
+  <%= @subject.birth_month %>
+</p>
+
+<p>
+  <b>Birth day:</b>
+  <%= @subject.birth_day %>
+</p>
+
+<p>
+  <b>Birth year:</b>
+  <%= @subject.birth_year %>
+</p>
+
+
+<%= link_to 'Edit', edit_subject_path(@subject) %> |
+<%= link_to 'Back', subjects_path %>
