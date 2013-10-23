@@ -11,13 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131016054103) do
+ActiveRecord::Schema.define(:version => 20131021053221) do
+
+  create_table "micropost_subjects", :force => true do |t|
+    t.integer  "micropost_id"
+    t.integer  "subject_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "micropost_subjects", ["micropost_id", "subject_id"], :name => "index_micropost_subjects_on_micropost_id_and_subject_id", :unique => true
+  add_index "micropost_subjects", ["micropost_id"], :name => "index_micropost_subjects_on_micropost_id"
+  add_index "micropost_subjects", ["subject_id"], :name => "index_micropost_subjects_on_subject_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "subject_id"
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
@@ -39,8 +51,9 @@ ActiveRecord::Schema.define(:version => 20131016054103) do
     t.string   "birth_day"
     t.string   "birth_year"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "micropost_id"
   end
 
   create_table "users", :force => true do |t|

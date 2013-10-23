@@ -5,6 +5,9 @@ class Subject < ActiveRecord::Base
   validates :birth_month, presence: true
   validates :birth_day, presence: true
 
+  has_many :micropost_subjects, :foreign_key => "subject_id", :dependent => :destroy
+  has_many :microposts, :through => :micropost_subjects
+
   belongs_to :user
 
   def has_birth_date?

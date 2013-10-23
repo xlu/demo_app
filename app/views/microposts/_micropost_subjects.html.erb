@@ -1,0 +1,8 @@
+<% if micropost.subjects.count > 0 %>
+  <%= written_for %>
+<% end %>
+
+<% micropost.subjects.each do |subject| %>
+  <%= subject.name %>
+  (<%= written_at_age(micropost, subject) %>)
+<% end %>
