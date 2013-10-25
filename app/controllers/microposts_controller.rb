@@ -12,7 +12,7 @@ class MicropostsController < ApplicationController
       format.json { render json: @microposts }
     end
   end
-=begin
+
   # GET /microposts/1
   # GET /microposts/1.json
   def show
@@ -23,6 +23,8 @@ class MicropostsController < ApplicationController
       format.json { render json: @micropost }
     end
   end
+=begin
+
 
   # GET /microposts/new
   # GET /microposts/new.json
@@ -34,12 +36,13 @@ class MicropostsController < ApplicationController
       format.json { render json: @micropost }
     end
   end
+=end
 
   # GET /microposts/1/edit
   def edit
     @micropost = Micropost.find(params[:id])
   end
-=end
+
   # POST /microposts
   # POST /microposts.json
   def create
@@ -69,6 +72,29 @@ class MicropostsController < ApplicationController
     end
   end
 =end
+=begin
+{"utf8"=>"✓", "_method"=>"put", "authenticity_token"=>"2oJ7TdPVzqVgUeNwq9QEehiK2t5bZYIy0peyruxvgH4=",
+"micropost"=>{"content"=>"xlu post 1", "user_id"=>"101", "subject_id"=>""},
+"selected_subject_ids"=>["11"],
+"commit"=>"Update Micropost", "action"=>"update", "controller"=>"microposts", "id"=>"301"}
+=end
+  def update
+    @micropost = current_user.microposts.find(params[:id])
+    subject_ids = params[:selected_subject_ids]
+    @micropost.subject_ids = subject_ids
+    request_url = params[:request_url]
+    respond_to do |format|
+      if @micropost.update_attributes(params[:micropost])
+        #format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
+        format.html { redirect_to request_url, notice: 'Micropost was successfully updated.' }
+        format.json { head :no_content }
+      else
+        debugger
+        format.html { render action: "edit" }
+        format.json { render json: @micropost.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /microposts/1
   # DELETE /microposts/1.json
