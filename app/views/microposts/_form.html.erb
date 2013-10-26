@@ -16,13 +16,7 @@
     <%= f.text_field :content %>
   </div>
 
-  <% if false %>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <% end %>
-
+  <%= render :partial => "/shared/set_post_write_time", :locals => {:f => f} %>
   <%= render :partial => "/shared/select_subject_for_post", :locals => {:micropost => @micropost }%>
 
   <div class="actions">

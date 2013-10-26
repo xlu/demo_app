@@ -29,10 +29,15 @@ module SubjectsHelper
       else
         zone = ActiveSupport::TimeZone.new('Pacific Time (US & Canada)')
       end
-      written_day = micropost.created_at.in_time_zone(zone)
 
-      if subject_birth_date < written_day
-        return DOTIW::DOTIW.new.distance_of_time_in_words(subject_birth_date, written_day, true, {:only => ["years", "months", "days"]}) + " old"
+      if micropost.write_day.present? || micropost.write_year.present? || micropost.write_month.present?
+        written_date = Time.zone.local(micropost.write_year.to_i, micropost.write_month.to_i, micropost.write_day.to_i)
+      else
+        written_date = micropost.created_at.in_time_zone(zone)
+      end
+
+      if subject_birth_date < written_date
+        return DOTIW::DOTIW.new.distance_of_time_in_words(subject_birth_date, written_date, true, {:only => ["years", "months", "days"]}) + " old"
       else
         return "Not yet born"
       end
