@@ -47,7 +47,12 @@ class MicropostsController < ApplicationController
   # POST /microposts.json
   def create
     @micropost = current_user.microposts.build(params[:micropost])
-    if @micropost.save
+    success = @micropost.save
+    # Due to @micropost.micropost_subjects micropost_id is nil, move @micropost.save
+    # after subject_ids assignment will cause @micropost.save fail
+    @micropost.subject_ids = params[:selected_subject_ids]
+    success = @micropost.save if success
+    if success
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
@@ -80,16 +85,14 @@ class MicropostsController < ApplicationController
 =end
   def update
     @micropost = current_user.microposts.find(params[:id])
-    subject_ids = params[:selected_subject_ids]
-    @micropost.subject_ids = subject_ids
-    request_url = params[:request_url]
+    @micropost.subject_ids = params[:selected_subject_ids]
+
     respond_to do |format|
       if @micropost.update_attributes(params[:micropost])
-        #format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
-        format.html { redirect_to request_url, notice: 'Micropost was successfully updated.' }
+        flash[:notice] = 'Micropost was successfully updated.'
+        format.html { redirect_back_or @micropost }
         format.json { head :no_content }
       else
-        debugger
         format.html { render action: "edit" }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
       end

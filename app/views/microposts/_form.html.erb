@@ -23,13 +23,7 @@
   </div>
   <% end %>
 
-  <% @micropost.user.subjects.sort{|a, b| a.name <=> b.name}.each do |subject| %>
-    <%= check_box_tag  "selected_subject_ids[]", subject.id, @micropost.subjects.include?(subject),
-                             :id => "selected_subject_ids_id#{subject.id}"  %>
-    <%= subject.name %>
-  <% end %>
-
-  <%= hidden_field_tag 'request_url', (params[:request_url] rescue "") %>  <!-- better way? -->
+  <%= render :partial => "/shared/select_subject_for_post", :locals => {:micropost => @micropost }%>
 
   <div class="actions">
     <%= f.submit %>

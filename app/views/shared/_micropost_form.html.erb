@@ -3,5 +3,6 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
+  <%= render :partial => "/shared/select_subject_for_post", :locals => {:micropost => @micropost }%>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>

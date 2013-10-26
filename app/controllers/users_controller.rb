@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user,     only: :destroy
 
+  before_filter :store_location, :only => [:show]
+
   # GET /users
   # GET /users.json
   def index

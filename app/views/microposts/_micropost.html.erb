@@ -7,7 +7,7 @@
   </span>
 
   <% if current_user?(micropost.user) %>
-    <%= link_to 'Edit', edit_micropost_path(micropost, :request_url => request.url) %>
+    <%= link_to 'Edit', edit_micropost_path(micropost) %>
     <%= link_to "delete", micropost, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: micropost.content %>
