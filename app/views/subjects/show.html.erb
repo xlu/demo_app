@@ -1,25 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <aside class="span5">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @subject.name %>
-</p>
+    <p>
+      <b>Name:</b>
+      <%= @subject.name %>
+    </p>
 
-<p>
-  <b>Birth month:</b>
-  <%= @subject.birth_month %>
-</p>
+    <p>
+      <b>Birth month:</b>
+      <%= @subject.birth_month %>
+    </p>
 
-<p>
-  <b>Birth day:</b>
-  <%= @subject.birth_day %>
-</p>
+    <p>
+      <b>Birth day:</b>
+      <%= @subject.birth_day %>
+    </p>
 
-<p>
-  <b>Birth year:</b>
-  <%= @subject.birth_year %>
-</p>
+    <p>
+      <b>Birth year:</b>
+      <%= @subject.birth_year %>
+    </p>
 
+    <%= link_to 'Edit', edit_subject_path(@subject) %> |
+    <%= link_to 'Back', (link_back_or @subject rescue nil)  %>
+  </aside>
 
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+  <div class="span7">
+    <% if @subject.microposts.any? %>
+      <h3>Microposts (<%= @subject.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+
+  </div>
+</div>
+

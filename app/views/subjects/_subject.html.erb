@@ -3,12 +3,13 @@
       https://github.com/radar/dotiw
       DOTIW::DOTIW.new.distance_of_time_in_words(child_birth_date, today, true, {:only => ["years", "months", "days"]}) + " old"
        -->
-      <span style="margin: 5px 0 5px 0; "><%= subject.name %>
+      <span style="margin: 5px 0 5px 0; ">
+        <%= link_to subject.name, subject_path(subject.id), {title: subject.name, class: "bluelink"} %>
         <% if current_user?(subject.user) %>
-         (<%= link_to "Edit", edit_subject_path(subject), title: subject.name%>,
+         (<%= link_to "Edit", edit_subject_path(subject), {title: subject.name, class: "bluelink"}%>,
           <%= link_to "Delete", subject, method: :delete,
                                             data: { confirm: "You sure?" },
-                                            title: subject.name %>)
+                                            title: subject.name, class: "bluelink" %>)
         <% end %>
       </span>
       <span style="margin: 5px 0 5px 0">

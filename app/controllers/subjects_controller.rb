@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.json
@@ -14,6 +16,12 @@ class SubjectsController < ApplicationController
   # GET /subjects/1.json
   def show
     @subject = Subject.find(params[:id])
+    # TODO optimize
+    @microposts = @subject.microposts.sort{|a,b|
+          a_write_year = a.write_year.blank? ? a.created_at.year.to_i : a.write_year.to_i
+          b_write_year = b.write_year.blank? ? b.created_at.year.to_i : b.write_year.to_i
+          b_write_year <=> a_write_year
+        }.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb

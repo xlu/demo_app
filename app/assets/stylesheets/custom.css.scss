@@ -252,5 +252,14 @@ aside {
   }
 }
 
+/** change link color to blue **/
+a.bluelink  {
+  color: blue !important;
+}
+
+a:hover.bluelink {
+  color: white !important;
+}
+
 
 
