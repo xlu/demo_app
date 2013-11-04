@@ -18,10 +18,10 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     # TODO optimize
     @microposts = @subject.microposts.sort{|a,b|
-          a_write_year = a.write_year.blank? ? a.created_at.year.to_i : a.write_year.to_i
-          b_write_year = b.write_year.blank? ? b.created_at.year.to_i : b.write_year.to_i
-          b_write_year <=> a_write_year
-        }.paginate(page: params[:page])
+              a_write_time = a.write_time.blank? ? a.created_at : a.write_time
+              b_write_time = b.write_time.blank? ? b.created_at : b.write_time
+              b_write_time <=> a_write_time
+            }.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,6 +47,7 @@ class SubjectsController < ApplicationController
   end
 
   def create
+    params[:subject][:birth_time] = DateTime.new(params[:subject][:birth_year].to_i,params[:subject][:birth_month].to_i,params[:subject][:birth_day].to_i)
     @subject = current_user.subjects.build(params[:subject])
     if @subject.save
       flash[:success] = "Subject created!"

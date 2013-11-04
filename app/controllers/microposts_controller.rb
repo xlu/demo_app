@@ -46,6 +46,8 @@ class MicropostsController < ApplicationController
   # POST /microposts
   # POST /microposts.json
   def create
+    params[:micropost][:write_time] = DateTime.new(params[:micropost][:write_year].to_i,params[:micropost][:write_month].to_i,params[:micropost][:write_day].to_i)
+
     @micropost = current_user.microposts.build(params[:micropost])
     success = @micropost.save
     # Due to @micropost.micropost_subjects micropost_id is nil, move @micropost.save
@@ -86,6 +88,7 @@ class MicropostsController < ApplicationController
   def update
     @micropost = current_user.microposts.find(params[:id])
     @micropost.subject_ids = params[:selected_subject_ids]
+    params[:micropost][:write_time] = DateTime.new(params[:micropost][:write_year].to_i,params[:micropost][:write_month].to_i,params[:micropost][:write_day].to_i)
 
     respond_to do |format|
       if @micropost.update_attributes(params[:micropost])
